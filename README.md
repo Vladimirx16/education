@@ -1,4 +1,4 @@
-# lesson_4
+# ОПИСАНИЕ СТРУКТУРЫ ПРОЕКТОВ / DESCRIPTION OF A PROJECTS
 *FOR ENGLISH:
 Here's in "lesson_4" a two projects and both of it about learinng a objective oriented programming, first project just about cats and there is an easy program, what using a "Cat" class to create a new types of cats with different parametres, like different weight,name and age. The second project something like an editor for a fantasy characters, where i created a class "Knight" and made a two objects with this class. After this i created a "Hero" class, what inherit from "knight" class all parametres and added in "Hero" class new field - skill. I also made an "@Override" some methods from "Knight" class for a "Hero" class needs.
 
