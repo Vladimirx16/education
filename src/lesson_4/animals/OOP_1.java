@@ -1,4 +1,4 @@
-package lesson_4;
+package lesson_4.animals;
 
 public class OOP_1 {
     public static void main(String[] args) {

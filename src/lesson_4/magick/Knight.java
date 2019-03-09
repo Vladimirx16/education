@@ -1,4 +1,4 @@
-package lesson_4;
+package lesson_4.magick;
 
 import java.util.Scanner;
 

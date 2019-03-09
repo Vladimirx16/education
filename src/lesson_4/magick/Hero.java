@@ -1,4 +1,4 @@
-package lesson_4;
+package lesson_4.magick;
 
 public class Hero extends Knight {
     private String skill;
