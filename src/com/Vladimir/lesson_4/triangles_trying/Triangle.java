@@ -1,4 +1,4 @@
-package lesson_4.triangles_trying;
+package com.Vladimir.lesson_4.triangles_trying;
 
 public class Triangle {
     private double sideA = 0, sideB = 0, sideC = 0, perimeter = 0, square = 0;

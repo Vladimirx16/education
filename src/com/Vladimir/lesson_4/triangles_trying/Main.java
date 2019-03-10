@@ -1,4 +1,4 @@
-package lesson_4.triangles_trying;
+package com.Vladimir.lesson_4.triangles_trying;
 
 import java.util.Scanner;
 

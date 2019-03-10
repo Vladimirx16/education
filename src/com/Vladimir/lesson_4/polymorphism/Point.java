@@ -1,4 +1,4 @@
-package lesson_4.polymorphism;
+package com.Vladimir.lesson_4.polymorphism;
 
 public class Point { // Класс точки
     public double getSquare(){

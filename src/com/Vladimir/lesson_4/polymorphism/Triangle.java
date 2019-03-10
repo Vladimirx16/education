@@ -1,4 +1,4 @@
-package lesson_4.polymorphism;
+package com.Vladimir.lesson_4.polymorphism;
 
 public class Triangle extends Point { // Класс треугольник
     private double sideA = 3, sideB = 4, sideC = 5;

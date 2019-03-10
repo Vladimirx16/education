@@ -1,6 +1,5 @@
-package lesson_4.polymorphism;
+package com.Vladimir.lesson_4.polymorphism;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Polymorphism {

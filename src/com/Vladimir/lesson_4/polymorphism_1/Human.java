@@ -1,4 +1,4 @@
-package lesson_4.polymorphism_1;
+package com.Vladimir.lesson_4.polymorphism_1;
 
 public class Human extends Creature {
     private String kind = "Человек", name = "Вовчик", gender = "Мужской", surname = "*засекречено*";

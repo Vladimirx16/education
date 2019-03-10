@@ -1,4 +1,4 @@
-package lesson_4.polymorphism_1;
+package com.Vladimir.lesson_4.polymorphism_1;
 
 public class Orc extends Creature {
     private String kind = "Орк", name = "Саурон", gender = "Мужской";

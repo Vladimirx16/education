@@ -1,4 +1,4 @@
-package lesson_4.learn_GUI;
+package com.Vladimir.lesson_4.learn_GUI;
 
 import javax.swing.*;
 import java.awt.*;

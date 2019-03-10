@@ -1,4 +1,4 @@
-package lesson_4.polymorphism;
+package com.Vladimir.lesson_4.polymorphism;
 
 public class LineSegment extends Point { // Класс линии
     private double segmentLength = 10;
