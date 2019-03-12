@@ -1,4 +1,4 @@
-package com.Vladimir;
+package com.Vladimir.lesson_0;
 
 public class Main {
 
