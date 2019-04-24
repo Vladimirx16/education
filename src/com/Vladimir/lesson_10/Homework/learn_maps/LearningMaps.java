@@ -1,18 +1,32 @@
 package com.Vladimir.lesson_10.Homework.learn_maps;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class LearningMaps {
 
+    public static boolean isUserExist(String login, String password, HashMap users){
+        if (users.containsKey(login)) {
+            User thisUser = (User) users.get(login);
+            return thisUser.getPassword().equals(password);
+        }
+        return false;
+    }
+
     public static void fillData(HashMap data){
         Scanner input = new Scanner(System.in);
-        System.out.print("Какое количество человек будет добавлено в базу данных: ");
+        System.out.print("Добро пожаловать в интерфейс управления базой данных.\nКакое количество человек будет добавлено в базу данных: ");
         int lengthOfData = input.nextInt();
-        System.out.println("Вам доступна функция добавления людей в базу данных.\n \nВводите данные в формате:\nИмя\nID\nВозраст\n>>>");
+        System.out.println("Вам доступна функция добавления людей в базу данных.\n>>>");
         for (int i = 0; i < lengthOfData; i++) {
+            System.out.print("Имя: ");
             String name = input.next();
-            int id = input.nextInt(), age = input.nextInt();
+            System.out.print("ID: ");
+            int id = input.nextInt();
+            System.out.print("Возраст: ");
+            int age = input.nextInt();
             System.out.println(">>>");
             Person person = new Person(name, id, age);
             data.put(name, person);
@@ -33,23 +47,72 @@ public class LearningMaps {
 
     public static void main(String[] args) {
         HashMap<String, Person> data = new HashMap<>(10);
+        HashMap<String, User> users = new HashMap<>();
 
-        fillData(data);
 
         while(true){
-            System.out.println("Выберите дальнейшее действия: [Войти]/[Отсортировать]/[Закончить]");
             Scanner input = new Scanner(System.in);
-            String choice = input.next();
-            if (choice.toLowerCase().equals("войти")){
-            checkProfile(data);
-            } else if (choice.toLowerCase().equals("закончить")){
-                break;
-            } else if (choice.toLowerCase().equals("отсортировать")) {
-                System.out.println("Функция пока что не готова...\n>>>");
-            } else {
-                System.out.println("Вы ввели неверную команду!\n>>>");
+
+            System.out.println("Выберите действие: [Войти]/[Закончить]/[Зарегистрироваться]");
+
+            String firstChoice = input.next();
+            if (firstChoice.toLowerCase().equals("войти")) {
+
+                System.out.print("Логин: ");
+                String login = input.next();
+                System.out.print("Пароль: ");
+                String password = input.next();
+
+                if (isUserExist(login, password, users)) {
+                    System.out.println("Вы успешно вошли!\n>>>");
+                    boolean constant = true;
+                    while (constant) {
+                        System.out.println("Выберите дальнейшее действие: [Добавить]/[Очистить]/[Просмотреть]/[Отсортировать]/[Выйти]");
+                        String choice = input.next();
+
+                        switch (choice.toLowerCase()) {
+                            case "добавить":
+                                fillData(data);
+                                break;
+                            case "очистить":
+                                data.clear();
+                                System.out.println("База данных успешно очищена!\n>>>");
+                                break;
+                            case "просмотреть":
+                                checkProfile(data);
+                                break;
+                            case "отсортировать":
+                                System.out.println("Данная функция в разработке...\n>>>");
+                                break;
+                            case "выйти":
+                                System.out.println("Вы успешно вышли!\n>>>");
+                                constant = false;
+                                break;
+                            default:
+                                System.out.println("Вы ввели неверную команду!\n>>>");
+                        }
+                    }
+                } else {
+                    System.out.println("Вы ввели неверный логин или пароль! Попробуйте снова.\n>>>");
+                } } else if (firstChoice.toLowerCase().equals("закончить")){ break; }
+            else if (firstChoice.toLowerCase().equals("зарегистрироваться")) {
+                while (true) {
+                    System.out.print("Новый логин: ");
+                    String login = input.next();
+                    System.out.print("Новый пароль: ");
+                    String password = input.next();
+                    System.out.print("Введите пароль ещё раз: ");
+                    String checkPassword = input.next();
+                    if (checkPassword.equals(password)) {
+                        User user = new User(login, password);
+                        users.put(login, user);
+                        System.out.println("Вы успешно зарегистрировались! Ваш логин: " + login + " ; Ваш пароль: " + password + "\n>>>");
+                        break;
+                    } else {
+                        System.out.println("Пароли не совпадают!\n>>>");
+                    }
+                }
             }
         }
-
     }
 }
