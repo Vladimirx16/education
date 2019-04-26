@@ -1,7 +1,6 @@
 package com.Vladimir.lesson_10.Homework.learn_maps;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ public class LearningMaps {
         return false;
     }
 
-    public static void fillData(HashMap data){
+    public static void fillData(HashMap data, ArrayList names){
         Scanner input = new Scanner(System.in);
         System.out.print("Добро пожаловать в интерфейс управления базой данных.\nКакое количество человек будет добавлено в базу данных: ");
         int lengthOfData = input.nextInt();
@@ -30,10 +29,12 @@ public class LearningMaps {
             System.out.println(">>>");
             Person person = new Person(name, id, age);
             data.put(name, person);
+            names.add(name); // Имена добавленных людей
         }
     }
 
-    public static void checkProfile(HashMap data){
+    public static void checkProfile(HashMap data, ArrayList names){
+        System.out.println("Список добавленных людей: " + names);
         System.out.println("Введите имя человека, чтобы посмотреть его профиль.");
         Scanner input = new Scanner(System.in);
         String name = input.next();
@@ -47,6 +48,7 @@ public class LearningMaps {
 
     public static void main(String[] args) {
         HashMap<String, Person> data = new HashMap<>(10);
+        ArrayList<String> names = new ArrayList<>();
         HashMap<String, User> users = new HashMap<>();
 
 
@@ -67,22 +69,25 @@ public class LearningMaps {
                     System.out.println("Вы успешно вошли!\n>>>");
                     boolean constant = true;
                     while (constant) {
-                        System.out.println("Выберите дальнейшее действие: [Добавить]/[Очистить]/[Просмотреть]/[Отсортировать]/[Выйти]");
+                        System.out.println("Выберите дальнейшее действие: [Добавить]/[Очистить]/[Просмотреть]/[Отсортировать]/[Админ]/[Выйти]");
                         String choice = input.next();
 
                         switch (choice.toLowerCase()) {
                             case "добавить":
-                                fillData(data);
+                                fillData(data, names);
                                 break;
                             case "очистить":
                                 data.clear();
                                 System.out.println("База данных успешно очищена!\n>>>");
                                 break;
                             case "просмотреть":
-                                checkProfile(data);
+                                checkProfile(data, names);
                                 break;
                             case "отсортировать":
                                 System.out.println("Данная функция в разработке...\n>>>");
+                                break;
+                            case "админ":
+
                                 break;
                             case "выйти":
                                 System.out.println("Вы успешно вышли!\n>>>");
